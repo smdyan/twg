@@ -1,2 +1,2 @@
 # twg
-Wireguard
+Wireguard client hp640

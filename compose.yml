@@ -11,13 +11,16 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     networks:
       mynet:
-        ipv4_address: 172.22.0.12
-    ports:
-      - 51820:51820/udp
+        ipv4_address: 172.22.0.10
+    # ports:
+    #   - 51820:51820/udp
     tty: true
     restart: always
-  
+
 networks:
   mynet:
-    name: vps_mynet
-    external: true
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.22.0.0/24
+        gateway: 172.22.0.1
