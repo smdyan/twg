@@ -1,0 +1,23 @@
+services:
+  twgs2:
+    container_name: twgc2
+    build:
+      context: ./twg2
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
+    networks:
+      mynet:
+        ipv4_address: 172.22.0.12
+    ports:
+      - 51820:51820/udp
+    tty: true
+    restart: always
+  
+networks:
+  mynet:
+    name: vps_mynet
+    external: true
