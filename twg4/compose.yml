@@ -1,8 +1,8 @@
 services:
-  twgs2:
-    container_name: twgc2
+  twg_cli:
+    container_name: twg4
     build:
-      context: ./twg2
+      context: .
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -11,9 +11,7 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     networks:
       mynet:
-        ipv4_address: 172.22.0.10
-    # ports:
-    #   - 51820:51820/udp
+        ipv4_address: 172.24.0.13
     tty: true
     restart: always
 
@@ -22,5 +20,5 @@ networks:
     driver: bridge
     ipam:
       config:
-      - subnet: 172.22.0.0/24
-        gateway: 172.22.0.1
+      - subnet: 172.24.0.0/24
+        gateway: 172.24.0.1

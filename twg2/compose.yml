@@ -1,0 +1,19 @@
+services:
+  twg_cli:
+    container_name: twg2
+    build:
+      context: .
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    networks:
+      wgnet:
+        ipv4_address: 172.22.0.13
+    ports:
+      - 51822:51822/udp
+    tty: true
+    restart: always
+
+#use existing network  
+networks:
+
