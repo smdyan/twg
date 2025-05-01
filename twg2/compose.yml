@@ -14,6 +14,8 @@ services:
     tty: true
     restart: always
 
-#use existing network  
 networks:
+  mynet:
+    name: vps_mynet
+    external: true
 
