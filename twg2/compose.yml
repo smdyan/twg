@@ -7,7 +7,7 @@ services:
       - NET_ADMIN
       - SYS_MODULE
     networks:
-      vps_mynet:
+      mynet:
         ipv4_address: 172.22.0.13
     ports:
       - 51822:51822/udp
